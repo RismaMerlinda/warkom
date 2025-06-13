@@ -11,6 +11,7 @@ class Menu extends Model
 
     protected $table = 'tb_menu';
 
+//menentukan kolom-kolom yang dapat diis
     protected $fillable = [
         'nama',
         'jenis',
@@ -18,7 +19,8 @@ class Menu extends Model
         'stok',
         'gambar',
     ];
-
+    
+//Menyatakan bahwa satu menu bisa muncul di banyak OrderItem
     public function orderItems()
     {
         return $this->hasMany(OrderItem::class);
