@@ -7,10 +7,13 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+
+//Mengaktifkan factory
     use HasFactory, Notifiable;
-
+    
+//Menentukan bahwa model ini terhubung ke tabel bernama
     protected $table = 'tb_user';
-
+   
     protected $fillable = [
         'nama_user',
         'username',
