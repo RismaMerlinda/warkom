@@ -9,20 +9,21 @@ class Menu extends Model
 {
     use HasFactory;
 
+    // Menentukan nama tabel yang digunakan oleh model ini
     protected $table = 'tb_menu';
 
-//menentukan kolom-kolom yang dapat diis
+    // Menentukan kolom-kolom yang boleh diisi (mass assignable)
     protected $fillable = [
-        'nama',
-        'jenis',
-        'harga',
-        'stok',
-        'gambar',
+        'nama',     // Nama menu
+        'jenis',    // Jenis menu (makanan/minuman)
+        'harga',    // Harga satuan menu
+        'stok',     // Jumlah stok yang tersedia
+        'gambar',   // Path gambar menu
     ];
     
-//Menyatakan bahwa satu menu bisa muncul di banyak OrderItem
+    // Relasi satu ke banyak: satu menu bisa dimiliki oleh banyak item pesanan
     public function orderItems()
     {
-        return $this->hasMany(OrderItem::class);
+        return $this->hasMany(OrderItem::class); // relasi ke tabel order_items
     }
 }
